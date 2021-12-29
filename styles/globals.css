@@ -2,8 +2,10 @@ html,
 body {
 	margin: 0;
 	padding: 0;
+	color: var(--black);
+	background-color: #F5F6F8;
 
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: "Noto Sans KR", sans-serif;
 }
 
 a {
@@ -14,4 +16,13 @@ a {
 
 * {
 	box-sizing: border-box;
+}
+
+:root {
+	--black: #3B434E;
+	--white: white;
+	--primary: #7653FC;
+	--red: #FC836D;
+	--green: #1DC37E;
+	--font-family: "Noto Sans KR", sans-serif;
 }
