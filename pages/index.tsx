@@ -7,6 +7,7 @@ export default function Home(): JSX.Element {
       <Htag tag="h2">Text</Htag>
       <Button appearance="primary">Button 1</Button>
       <Button appearance="ghost">Button 2</Button>
+      <Button appearance="primary" arrow="right">Button arrow</Button>
     </div>
   );
 }
