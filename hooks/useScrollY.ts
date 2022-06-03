@@ -6,7 +6,7 @@ export const useScrollY = (): number => {
     const [scrollY, setScrollY] = useState<number>(0);
 
     const handleScroll = () => {
-        const currentScrollY = isBrowser ? window.screenY : 0;
+        const currentScrollY = isBrowser ? window.scrollY : 0;
         setScrollY(currentScrollY);
     };
 
