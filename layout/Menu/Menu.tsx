@@ -6,17 +6,18 @@ import { FirstlevelMenuItem, PageItem } from '../../interfaces/menu.interface';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { firstLevelMenu } from '../../helpers/helpers';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 export const Menu = (): JSX.Element => {
     const {menu, setMenu, firstCategory} = useContext(AppContext);
     const [announce, setAnnounce] = useState<'closed' | 'opened' | undefined>();
+    const shouldReduceMotion = useReducedMotion();
     const router = useRouter();
 
     const variants = {
         visible: {
             marginBottom: 20,
-            transition: {
+            transition: shouldReduceMotion ? {} : {
                 when: 'beforeChildren',
                 staggerChildren: 0.1
             }
@@ -32,7 +33,7 @@ export const Menu = (): JSX.Element => {
             maxHeight: 48
         },
         hidden: {
-            opacity: 0,
+            opacity: shouldReduceMotion ? 1 : 0,
             maxHeight: 0
         }
     };
