@@ -30,6 +30,7 @@ export const Up = (): JSX.Element => {
                 appearance="primary" 
                 icon="up" 
                 onClick={scrollToTop}
+                aria-label="Наверх"
             />
         </motion.div>
     );
