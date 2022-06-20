@@ -42,7 +42,7 @@ export const Product = motion(forwardRef(({ product, className, ...props}: Produ
         <div className={className} {...props} ref={ref}>
             <Card className={styles.product}>
                 <div className={styles.logo}>
-                    <Image 
+                    <img 
                         src={(product.image.includes('/uploads') ? process.env.NEXT_PUBLIC_DOMAIN : "") + product.image}
                         alt={product.title}
                         width={70}
@@ -53,15 +53,15 @@ export const Product = motion(forwardRef(({ product, className, ...props}: Produ
                     {product.title}
                 </div>
                 <div className={styles.price}>
-                    <span><span className="visualyHidden">цена</span>{priceRu(product.price)}</span>
+                    <span><span className="visualyHidden">цена</span>{product.price && priceRu(product.price)}</span>
                     {product.oldPrice && <Tag className={styles.oldPrice} color="green">
                         <span className="visualyHidden">скидка</span>
-                        {priceRu(product.price - product.oldPrice)}
+                        {product.price && priceRu(product.price - product.oldPrice)}
                     </Tag>}
                 </div>
                 <div className={styles.credit}>
                     <span className="visualyHidden">кредит</span>
-                    {priceRu(product.credit)}<span className={styles.month}>/мес</span>
+                    {product.credit && priceRu(product.credit)}<span className={styles.month}>/мес</span>
                 </div>
                 <div className={styles.rating}>
                     <span className="visualyHidden">{"рейтинг" + (product.reviewAvg ?? product.initialRating)}</span>
